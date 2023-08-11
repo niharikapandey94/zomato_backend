@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Review Orders</h1>
+    <ul>
+        {% for order in order_data %}
+            <li>
+                Order ID: {{ order.order_id }}<br>
+                Customer Name: {{ order.customer_name }}<br>
+                Dish IDs: {{ order.dish_ids|join:", " }}<br>
+                Status: {{ order.status }}
+                {% if order.status != 'delivered' %}
+                    <a href="{% url 'update_order_status' order.order_id 'preparing' %}">Start Preparing</a>
+                    <a href="{% url 'update_order_status' order.order_id 'ready for pickup' %}">Ready for Pickup</a>
+                    <a href="{% url 'update_order_status' order.order_id 'delivered' %}">Delivered</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'menu' %}">Back to Menu</a>
+    {% endblock %}

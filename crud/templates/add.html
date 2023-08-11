@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Add New Dish</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="dish_name">Dish Name:</label><br>
+        <input type="text" name="dish_name" required><br><br>
+        <label for="price">Price:</label><br>
+        <input type="number" name="price" step="0.01" required><br><br>
+        <label for="availability">Availability:</label>
+        <input type="checkbox" name="availability"><br><br>
+        <button type="submit">Add Dish</button>
+    </form>
+    {% endblock %}
+

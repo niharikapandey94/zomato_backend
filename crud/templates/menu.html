@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <ul>
+        {% for dish in menu_data %}
+            <li>
+                <strong>{{ dish.dish_name }}</strong><br>
+                Dish ID: {{ dish.dish_id }}<br>  <!-- Display the dish_id -->
+                Price: ${{ dish.price }}<br>
+                Availability: {% if dish.availability %}Available{% else %}Not Available{% endif %}
+            </li>
+            
+        {% endfor %}
+        {% endblock %}
+    
+    
+

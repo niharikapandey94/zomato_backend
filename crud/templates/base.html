@@ -1,0 +1,28 @@
+
+{% load static %}
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Zomato Chronicles</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+</head>
+<body>
+  <nav>
+    <a href="{% url 'menu' %}">Menu</a>
+    <a href="{% url 'add' %}">Add</a>
+    <a href="{% url 'remove' %}">Remove</a>
+    <a href="{% url 'update' %}">Update</a>
+    <a href="{% url 'take_order' %}">Take Order</a>
+    <a href="{% url 'review_orders' %}">Review Orders</a>
+    <a href="{% url 'exit_option' %}">Exit</a>
+    
+    
+  </nav>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
+
+

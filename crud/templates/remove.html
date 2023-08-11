@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for dish in menu_data %}
+<form method="post" action="{% url 'remove' %}">
+    {% csrf_token %}
+    <input type="hidden" name="dish_id" value="{{ dish.dish_id }}">
+    <button type="submit">Remove</button>
+</form>
+{% endfor %}
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Take New Order</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name"><br>
+        <label for="dish_ids">Dish IDs (comma-separated):</label>
+        <input type="text" id="dish_ids" name="dish_ids"><br>
+        <input type="submit" value="Take Order">
+    </form>
+    <a href="{% url 'menu' %}">Back to Menu</a>
+
+    {% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Update Dish Information</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="dish_name">Dish Name:</label>
+        <input type="text" id="dish_name" name="dish_name" value="{{ dish.dish_name }}"><br>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" value="{{ dish.price }}"><br>
+        <label for="availability">Availability:</label>
+        <input type="checkbox" id="availability" name="availability" {% if dish.availability %}checked{% endif %}><br>
+        <input type="submit" value="Update">
+    </form>
+    <a href="{% url 'menu' %}">Back to Menu</a>
+    {% endblock %}
